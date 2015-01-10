@@ -9,7 +9,9 @@
 
 
 ### Git
+git add <file_name>
 git commit -a
+git commit . (enter a commit comment)
 git push origin master
 git clone <source>
 git pull
