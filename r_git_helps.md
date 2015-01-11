@@ -17,3 +17,9 @@
 *git pull
 
 ### Common R Commands
+
+### Reading data
+* read.table
+* read.csv("file_name", -flags)
+* readLines
+
