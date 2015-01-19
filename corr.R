@@ -5,14 +5,23 @@ corr <- function(directory, threshold) {
     filenames <- data.frame(id)
     threshold <- vector("numeric")
     cr <- vector("numeric")
+    output <- vector("numeric")
     
-    for(i in 1:length(id)){
-        filenames <- sprintf("%s/%i", threshold, id[i])
+    for(i in 1:332) {
+    
+        filenames <- paste(threshold, id[i], sep = "")
         cr[i] <- sum(complete.cases(read.csv(filenames)))
-    
+        results <- numeric(cr[i])
+        
+        if(cr <= threshold) {
+            next
+        }
+        
         }#end-for
     
     print("I made it to the end")
-    data.frame(id, cr)
+    cr
+    #data.frame(cr, threshold)
+    ##output <- cor(id, threshold)
 }
 
