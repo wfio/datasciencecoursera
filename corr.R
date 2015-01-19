@@ -2,19 +2,19 @@ source("corr.R")
 
 corr <- function(directory, threshold) {
     
-    threshold <- vector("numeric", length = 1)
-    cr <- vector("numeric", length = 1)
+    threshold <- list.files("specdata/", full.names = TRUE)
     
-    for(i in 1:length(threshold)){
-        
-        directory <- sprintf("%s/%03d.csv", directory, threshold[i])
-        
-        if(tmp <- complete.cases(read.csv(directory)) < threshold[i]) {
-            next
-        } 
-        threshold[i] <- sum(tmp)
-    }
     
-    cr <- corr(directory$sulfate, directory$nitrate)
+   directory <- c("/media//solaris//HotSwap//coursera//datasciencecoursera//specdata")
+   threshold <- vector("numeric", length = 1)
+   cr <- vector("numeric", length = 1)
+   
+   for(i in 1:seq_along(threshold)) {
+   
+       threshold <- complete.cases(directory(directory$sulfate & directory$nitrate > threshold[i]))
+       
+   }
+    
+cr <- corr(directory$sulfate, directory$nitrate)
     
 }#end-func
