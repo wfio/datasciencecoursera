@@ -6,8 +6,11 @@ corr <- function(directory, threshold) {
     cr <- vector("numeric", length = 1)
     
     for(i in 1:length(id)){
-        filenames <- sprintf("%s/%03d.csv", directory, id[i])
+        filenames <- sprintf("%s/%s", directory, id[i])
         nobs[i] <- sum(complete.cases(read.csv(filenames)))
     
         }#end-for
+    print("I made it to the end")
+    
 }
+
