@@ -9,11 +9,17 @@ corr <- function(directory, threshold) {
         #filenames <- paste(threshold, id[i], sep = "")
         cr[i] <- sum(complete.cases(read.csv(filenames[i])))
         
-            if(cr >= threshold) {
-                print("Made it into the if")
+            if(cr[i] >= threshold) {
+                correlations <- cor(filenames$sulfate, filenames$nitrate)
             }
         }#end-for
     
     print("This is a test -- I made it to the end")
-    data.frame(cr, threshold)
+    #data.frame(cr, threshold)
+    #head(cr)
+    #summary(cr)
+    #length(cr)
+    #class(cr)
+    correlations
 }
+
