@@ -1,20 +1,19 @@
-source("corr.R")
-
 corr <- function(directory, threshold) {
     
-    ids <- list.files("specdata/", full.names = TRUE)
+    directory <- ("/media//solaris//HotSwap//coursera//datasciencecoursera//specdata")
+    filenames <- list.files(directory, full.names = TRUE)
+    correlations <- numeric()
     
-    
-    directory <- c("/media//solaris//HotSwap//coursera//datasciencecoursera//specdata")
-    threshold <- vector("numeric", length = 1)
-    cr <- vector("numeric", length = 1)
-    
-    for(i in 1:length(id)){
-        filenames <- sprintf("%s/%03d.csv", directory, id[i])
-        nobs[i] <- sum(complete.cases(read.csv(filenames)))
-    }
+    for(i in 1:length(filenames)) {
         
-    }
+        read_files <- read.csv(filenames[i])
+        obs <- read_files[complete.cases(read_files), ]
+        num_obs <- nrow(obs) #integer vector of 1041 (1L)
     
+        if(num_obs > threshold) {
+           correlations[i] <- cor(obs$sulfate, obs$nitrate)
+        }
+    }#end-for
     
-}#end-func
+    correlations
+}
