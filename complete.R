@@ -1,6 +1,6 @@
 complete <- function(directory, id = 1:332) {
     
-    
+    id <- 1:332
     nobs <- numeric(length(id))
     
     #initialize a list vector that with the length of spec_full[332]

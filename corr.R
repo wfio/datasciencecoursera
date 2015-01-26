@@ -5,7 +5,6 @@ corr <- function(directory, threshold = 0) {
     directory <- ("/media/solaris//HotSwap/coursera/datasciencecoursera/specdata/")
     filenames <- list.files(directory, full.names = TRUE)
     cr <- vector(mode = 'numeric')
-    obs <- data.frame
     
     for(i in 1:length(filenames)) {
         
@@ -19,4 +18,5 @@ corr <- function(directory, threshold = 0) {
         
     }#end-for
     cr <- cr[!is.na(cr)]
+    cr
 }
